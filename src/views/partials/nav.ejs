@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+
+    <a class="navbar-brand" href="/">
+      <img src="/ico/favicon.ico" alt="" width="32" height="32" class="d-inline-block align-text-top">
+      ALEHO-BOT
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Logs </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li> <a class="dropdown-item" href="/logger">View Logs</a> </li>
+            <li> <a class="dropdown-item" href="/clearlogs">Clear Log</a> </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/status">Bot Status</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/api/doc">Documentacion</a>
+        </li>
+      </ul>
+
+      <div class="d-flex justify-content-center align-items-center">
+        <img src="<%= user.image %>" alt="" width="32" height="32" class="d-inline-block align-text-top">
+        <span>
+          <%= user.name %>
+          <br>
+        </span>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-left">
+        <% if (user.name === 'Anonymous') { %>
+        <a href="/login" class="btn btn-primary ms-2">Login <img src="/path/to/login-icon.png" alt="" width="16" height="16"></a>
+        <a href="/signin" class="btn btn-success ms-2">Signin <img src="/path/to/signin-icon.png" alt="" width="16" height="16"></a>
+        <% } else { %>
+        <a href="/logout" class="btn btn-danger ms-2">Logout <img src="/path/to/logout-icon.png" alt="" width="16" height="16"></a>
+        <% } %>
+      </div>
+    </div>
+
+  </div>
+</nav>

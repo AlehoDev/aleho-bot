@@ -1,0 +1,39 @@
+<script src="./js/chart.js"></script>
+<script>
+  const dataDolarStr = <%- JSON.stringify(dataDolar) %>;
+  const dolarDates = dataDolarStr.map(item => timeStamp(item.date));
+  const dolarValues = dataDolarStr.map(item => item.value);
+  const dolarValues2 = dataDolarStr.map(item => item.value2);
+
+  const dolarDataSet = {
+    labels: dolarDates,
+    datasets: [{
+        label: 'Dolar Blue $',
+        data: dolarValues,
+        borderColor: 'rgba(0, 99, 255, 1)',
+        backgroundColor: 'rgba(0, 99, 255, 0.2)',
+        borderWidth: 1,
+        pointRadius: 1,
+        pointHoverRadius: 3,
+        fill: true
+      },
+      {
+        label: 'Dolar Oficial $',
+        data: dolarValues2,
+        borderColor: 'rgba(40, 230, 30, 1)',
+        backgroundColor: 'rgba(30, 230, 30, 0.2)',
+        borderWidth: 1,
+        pointRadius: 1,
+        pointHoverRadius: 3,
+        fill: true
+      }
+    ]
+  };
+
+  const ctxDolar = document.getElementById('dolar-chart').getContext('2d');
+  const chartDolar = new Chart(ctxDolar, {
+    type: 'line',
+    data: dolarDataSet,
+    options: {}
+  });
+</script>

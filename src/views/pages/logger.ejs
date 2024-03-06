@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head', {title: 'Logger' }) %>
+
+    <body>
+
+        <%- include('../partials/websocket') %>
+            <%- include('../partials/nav', {user}) %>
+
+                <div class="container-sm">                    
+                        <div id="logger">
+                            <table class="table">
+
+                            </table>
+                        </div>                    
+                </div>
+    </body>
+
+    <%- include('../partials/scripts') %>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head', {title}) %>
+
+<body>
+
+  <%- include('../partials/nav', {user}) %>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-6 col-xl-4">
+        <div class="graphContainer mb-3 mt-3">
+          <h1 class="text-center tRelieve">Server Info</h1>
+          <div class="row mt-4">
+            <h6>Online: 💻 <%- dataServer.uptime %></h6>
+            <h6>Memoria libre: 🧮 <%- dataServer.freeram %> </h6>
+            <h6>Memoria total: 🧮 <%- dataServer.totalram %></h6>
+          </div>
+          <div class="row mt-4">
+            <div class="col-4">
+              <a href="https://github.com/Aleho84/aleho-bot">
+                <img src="https://camo.githubusercontent.com/7bec5f896cb83acb7761bf23ed4bc9e53ea8dc2a1a33066510ee7542266576bb/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f7061636b6167652d6a736f6e2f762f616c65686f38342f616c65686f2d626f743f7374796c653d706c6173746963" alt="">
+              </a>
+            </div>
+            <div class="col-4">
+              <a href="https://github.com/Aleho84/aleho-bot/issues">
+                <img src="https://img.shields.io/github/issues/aleho84/aleho-bot?style=plastic" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-4">
+        <div class="graphContainer mb-3 mt-3">
+          <h1 class="text-center tRelieve">Telegram Users</h1>
+          <canvas id="telegram-users-chart"></canvas>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-4">
+        <div class="graphContainer mb-3 mt-3">
+          <h1 class="text-center tRelieve">Cotización Dolar</h1>
+          <canvas id="dolar-chart"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+<%- include('../partials/scripts') %>
+<%- include('../partials/telegram-chart', {dataUser}) %>
+<%- include('../partials/dolar-chart', {dataDolar}) %>
+
+</html>

@@ -1,0 +1,10 @@
+{
+    "name": "aleho-bot",
+    "script": "./src/app.js",
+    "watch": true,
+    "ignore_watch": ["node_modules", "./src/logs"],
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
+  

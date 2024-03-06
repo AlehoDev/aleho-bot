@@ -1,0 +1,66 @@
+name: deploy_private
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - run: echo ${{ secrets.SUDO_PSW }} | sudo -S pm2 delete aleho-bot
+        continue-on-error: true
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - name: Create .env file
+        run: |
+          touch .env
+          echo NODE_ENV=production >> .env
+          echo DEBUG=false >> .env
+          echo PROTOCOL=https >> .env
+          echo HOST=${{ vars.ALEHOBOT_HOST }} >> .env
+          echo HOST_LOCAL=${{ vars.ALEHOBOT_HOST_LOCAL }} >> .env
+          echo PORT=${{ vars.ALEHOBOT_PORT }} >> .env
+          echo SECRET_STRING=${{ secrets.ALEHOBOT_SECRET_STRING }} >> .env
+          echo PRIVATE_KEY=${{ secrets.ALEHOBOT_PRIVATE_KEY }} >> .env
+          echo TIME_SESSION=${{ vars.ALEHOBOT_TIME_SESSION }} >> .env
+          echo DB_MODE=${{ vars.ALEHOBOT_DB_MODE }} >> .env
+          echo MONGOOSE_URI=${{ secrets.ALEHOBOT_MONGOOSE_URI }} >> .env          
+          echo TELEGRAM_TOKEN=${{ secrets.ALEHOBOT_TELEGRAM_TOKEN }} >> .env
+          echo TELEGRAM_MAGIC_WORD=${{ secrets.ALEHOBOT_TELEGRAM_MAGIC_WORD }} >> .env
+          echo DISCORD_TOKEN=${{ secrets.ALEHOBOT_DISCORD_TOKEN }} >> .env
+          echo DISCORD_CLIENT_ID=${{ secrets.ALEHOBOT_DISCORD_CLIENT_ID }} >> .env
+          echo DISCORD_WEBHOCK_TOKEN=${{ secrets.ALEHOBOT_DISCORD_WEBHOCK_TOKEN }} >> .env
+          echo DISCORD_WEBHOCK_ID=${{ secrets.ALEHOBOT_DISCORD_WEBHOCK_ID }} >> .env
+          echo BOT_INTERVAL=${{ vars.ALEHO_BOT_INTERVAL }} >> .env          
+          echo SPAM_MSG_DELAY=${{ vars.ALEHO_SPAM_MSG_DELAY }} >> .env
+          echo ASK_LIMIT=${{ vars.ALEHO_ASK_LIMIT }} >> .env
+          echo ASK_LIMIT_TIME=${{ vars.ALEHO_ASK_LIMIT_TIME }} >> .env
+          echo EMAIL_HOST=${{ vars.ALEHO_EMAIL_HOST }} >> .env
+          echo EMAIL_PORT=${{ vars.ALEHO_EMAIL_PORT }} >> .env
+          echo EMAIL_SECURE=${{ vars.ALEHO_EMAIL_SECURE }} >> .env
+          echo EMAIL_USER=${{ secrets.ALEHO_EMAIL_USER }} >> .env 
+          echo EMAIL_PASS=${{ secrets.ALEHO_EMAIL_PASS }} >> .env 
+          echo GEMINI_API_KEY=${{ secrets.ALEHO_GEMINI_API_KEY }} >> .env
+      - name: Copy CSR
+        run: cp ~/cert.pem ~/git-actions-runner/_work/aleho-bot/aleho-bot/src/certificates/cert.pem
+      - name: Copy KEY
+        run: cp ~/key.pem ~/git-actions-runner/_work/aleho-bot/aleho-bot/src/certificates/key.pem
+  start:
+    needs: deploy
+    runs-on: self-hosted
+    steps:
+      - run: echo ${{ secrets.SUDO_PSW }} | sudo -S pm2 start pm2.json
+  test:
+    needs: start
+    runs-on: self-hosted
+    steps:
+      - run: npm run test --if-present
