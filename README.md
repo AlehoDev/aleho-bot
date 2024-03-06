@@ -1,15 +1,16 @@
 # ALEHO-BOT 
 
-<a href="https://ibb.co/px3Ld0f"><img src="https://i.ibb.co/px3Ld0f/aleho-bot.jpg" alt="aleho-bot"  width="180" height="180" /></a> 
+<a href="https://ibb.co/px3Ld0f"><img src="https://i.ibb.co/px3Ld0f/aleho-bot.jpg" alt="aleho-bot"  width="180" height="180" style="border-radius: 50%;"/></a> 
 
-https://aleho.sytes.net:3001/
+https://aleho-bot.sytes.net/
 
 # 
-![](https://img.shields.io/github/package-json/v/aleho84/aleho-bot?style=plastic)
-![](https://img.shields.io/github/issues/aleho84/aleho-bot?style=plastic)
+![](https://img.shields.io/website?url=https%3A%2F%2Faleho.sytes.net%3A4000&style=plastic)
+![](https://img.shields.io/github/package-json/v/alehodev/aleho-bot?style=plastic)
+![](https://img.shields.io/github/issues/alehodev/aleho-bot?style=plastic)
 
-![](https://img.shields.io/github/last-commit/aleho84/aleho-bot?style=plastic) 
-![](https://img.shields.io/github/commit-activity/y/aleho84/aleho-bot?style=plastic)
+![](https://img.shields.io/github/last-commit/alehodev/aleho-bot?style=plastic) 
+![](https://img.shields.io/github/commit-activity/y/alehodev/aleho-bot?style=plastic)
 
 ## 🤖 [Telegram Bot](https://t.me/Aleho_Bot "Agrega el contacto de Aleho-Bot en tu telegram")
 Aleho-Bot es un bot de Telegram desarrollado en Node.js con capacidad de inteligencia artificial. Este bot te permitirá interactuar con él a través de mensajes en Telegram, brindándote respuestas inteligentes y funcionalidades adicionales.
