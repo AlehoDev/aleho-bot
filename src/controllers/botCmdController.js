@@ -82,3 +82,7 @@ export const clearLogs = (req, res) => {
     res.status(500).json({ message: err.message, line: err.line });
   };
 };
+
+export const serverCheck = (req, res) => {
+  res.status(200).send({message: 'server alive'});
+};
