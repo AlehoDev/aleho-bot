@@ -84,5 +84,5 @@ export const clearLogs = (req, res) => {
 };
 
 export const serverCheck = (req, res) => {
-  res.status(200).send({message: 'server alive'});
+  res.status(200).send({ message: 'server alive' });
 };
