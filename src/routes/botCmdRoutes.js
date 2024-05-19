@@ -9,7 +9,8 @@ import {
     showLogs,
     dolarHoy,
     euroHoy,
-    clearLogs
+    clearLogs,
+    serverCheck
 } from '../controllers/botCmdController.js';
 
 botCmdRouter.get('/findfreegames', auth, findFreeGames);
@@ -18,5 +19,6 @@ botCmdRouter.get('/showlogs', auth, isAdmin, showLogs);
 botCmdRouter.get('/dolarhoy', auth, dolarHoy);
 botCmdRouter.get('/eurohoy', auth, euroHoy);
 botCmdRouter.get('/claerlogs', auth, isAdmin, clearLogs);
+botCmdRouter.get('/servercheck', serverCheck);
 
 export default botCmdRouter;
