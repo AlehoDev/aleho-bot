@@ -7,7 +7,10 @@ export const getIndexPage = async (req, res) => {
   try {
     res.render('index', {
       title: packageJson.name.toUpperCase(),
-      user: readUser(req)
+      user: readUser(req),
+      dataUser: await readDataUser(),
+      dataServer: await readServer(),
+      dataDolar: await readDolar()
     });
   } catch (error) {
     res.render('index', {
@@ -16,23 +19,6 @@ export const getIndexPage = async (req, res) => {
     });
   };
 };
-
-export const getStatusPage = async (req, res) => {
-  try {
-    res.render('status', {
-      title: packageJson.name.toUpperCase(),
-      user: readUser(req),
-      dataUser: await readDataUser(),
-      dataServer: await readServer(),
-      dataDolar: await readDolar()
-    });
-  } catch (error) {
-    res.render('status', {
-      title: packageJson.name.toUpperCase(),
-      user: readUser(req),
-    });
-  };
-}
 
 export const getLoginPage = (req, res) => {
   res.render('login', { user: readUser(req) });

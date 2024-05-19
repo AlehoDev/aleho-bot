@@ -1,6 +1,6 @@
+import 'dotenv/config';
 import { assert } from 'chai';
 import { logCheck } from './checkers/logCheck.js';
-import 'dotenv/config';
 
 const serverURL = `${process.env.PROTOCOL}://${process.env.HOST}:${process.env.PORT}/api/botcmd/servercheck`;
 

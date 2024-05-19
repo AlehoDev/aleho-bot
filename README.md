@@ -5,7 +5,7 @@
 https://aleho-bot.sytes.net/
 
 # 
-![](https://img.shields.io/website?url=https%3A%2F%2Faleho.sytes.net%3A4000&style=plastic)
+![](https://img.shields.io/website?url=https%3A%2F%2Faleho.sytes.net&style=plastic)
 ![](https://img.shields.io/github/package-json/v/alehodev/aleho-bot?style=plastic)
 ![](https://img.shields.io/github/issues/alehodev/aleho-bot?style=plastic)
 

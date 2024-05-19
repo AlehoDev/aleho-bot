@@ -27,8 +27,8 @@ let httpServer;
 //si el protocolo seteado en .env es HTTPS, monta un servidor HTTPS de lo contrario un http
 if (constant.PROTOCOL == 'https') {
     const options = {
-        key: fs.readFileSync(path.join(constant.__dirname, '../certificates/key.pem')),
-        cert: fs.readFileSync(path.join(constant.__dirname, '../certificates/cert.pem'))
+        key: fs.readFileSync(path.join(constant.__dirname, constant.KEY)),
+        cert: fs.readFileSync(path.join(constant.__dirname, constant.CERT))
     };
     httpServer = https.createServer(options, app);
 } else {

@@ -8,11 +8,13 @@ export default (ioServer) => {
         socket.emit(`server_handshake`);
 
         socket.on('client_handshake', () => {
-            logger.info(`[WEBSOKET]:📱 Cliente [${sessionCookie}][${clientIP}] conectado`)
+            //logger.info(`[WEBSOKET]:📱 Cliente [${sessionCookie}][${clientIP}] conectado`)
+            logger.info(`[WEBSOKET]:📱 [${clientIP}] conectado`)
         });
 
         socket.on('disconnect', () => {
-            logger.info(`[WEBSOKET]:📱 Cliente [${sessionCookie}][${clientIP}] desconectado`)
+            //logger.info(`[WEBSOKET]:📱 Cliente [${sessionCookie}][${clientIP}] desconectado`)
+            logger.info(`[WEBSOKET]:📱 [${clientIP}] desconectado`)
         });
     });
 };

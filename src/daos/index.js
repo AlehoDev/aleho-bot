@@ -6,7 +6,6 @@ let usersDao;
 let gamesDao;
 let telegramUsersDao;
 let dolarBlueHistoryDao;
-let pingDao;
 
 switch (constant.DB_MODE) {
   case 'mongoDB': //importa el modelo para usar mongodb

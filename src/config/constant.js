@@ -31,6 +31,8 @@ const EMAIL_SECURE = process.env.EMAIL_SECURE || true;
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const KEY = process.env.KEY || './src/certificates/key.pem';
+const CERT= process.env.CERT || './src/certificates/cert.pem';
 
 const constant = {
     PROTOCOL,
@@ -61,7 +63,9 @@ const constant = {
     EMAIL_SECURE,
     EMAIL_USER,
     EMAIL_PASS,
-    GEMINI_API_KEY
+    GEMINI_API_KEY,
+    KEY,
+    CERT
 };
 
 export default constant;

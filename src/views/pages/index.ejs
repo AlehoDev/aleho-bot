@@ -6,11 +6,57 @@
 <body>
 
   <%- include('../partials/nav', {user}) %>
-  <%- include('../partials/chatbot', {user}) %>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-6 col-xl-4">
+        <div class="graphContainer mb-3 mt-3">
+          <h1 class="text-center tRelieve">Server Info</h1>
+          <div class="row mt-4">
+            <h6>Online: 💻 <%- dataServer.uptime %></h6>
+            <h6>Memoria libre: 🧮 <%- dataServer.freeram %> </h6>
+            <h6>Memoria total: 🧮 <%- dataServer.totalram %></h6>
+          </div>
+          <div class="row mt-4">
+            <div class="col-4">
+              <a href="https://github.com/Aleho84/aleho-bot/issues">
+                <img src="https://img.shields.io/github/issues/aleho84/aleho-bot" alt="">
+              </a>
+            </div>
+            <div class="col-4">
+              <a href="https://github.com/Aleho84/aleho-bot">
+                <img src="https://img.shields.io/github/package-json/v/alehodev/aleho-bot" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-4">
+        <div class="graphContainer mb-3 mt-3">
+          <h1 class="text-center tRelieve">Telegram Users</h1>
+          <canvas id="telegram-users-chart"></canvas>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-4">
+        <div class="graphContainer mb-3 mt-3">
+          <h1 class="text-center tRelieve">Cotización Dolar</h1>
+          <canvas id="dolar-chart"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 
 </body>
 
-<%- include('../partials/websocket') %>
 <%- include('../partials/scripts') %>
+<%- include('../partials/telegram-chart', {dataUser}) %>
+<%- include('../partials/dolar-chart', {dataDolar}) %>
+<%- include('../partials/websocket') %>
 
 </html>
