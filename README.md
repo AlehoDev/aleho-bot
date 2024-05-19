@@ -2,7 +2,7 @@
 
 <a href="https://ibb.co/px3Ld0f"><img src="https://i.ibb.co/px3Ld0f/aleho-bot.jpg" alt="aleho-bot"  width="180" height="180" style="border-radius: 50%;"/></a> 
 
-https://aleho-bot.sytes.net/
+https://aleho.sytes.net/
 
 # 
 ![](https://img.shields.io/website?url=https%3A%2F%2Faleho.sytes.net&style=plastic)
