@@ -13,6 +13,7 @@ jobs:
 
     steps:
       - run: echo ${{ secrets.SUDO_PSW }} | sudo -S pm2 delete aleho-bot
+      - run: echo ${{ secrets.SUDO_PSW }} | sudo rm -rf /home/aleho/git-actions-runner/_work/aleho-bot/
         continue-on-error: true
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
