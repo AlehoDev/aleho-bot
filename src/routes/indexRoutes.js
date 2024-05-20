@@ -5,8 +5,7 @@ import { auth, isAdmin } from '../utils/auth.js';
 const indexRouter = Router();
 
 import {
-    getIndexPage,
-    getStatusPage,
+    getIndexPage,    
     getLoginPage,
     getSigninPage,
     getLoginFail,
@@ -23,7 +22,6 @@ indexRouter.get('/signin', getSigninPage);
 indexRouter.get('/loginfail', getLoginFail);
 indexRouter.get('/signinfail', getSigninFail);
 indexRouter.get('/logout', getLogout);
-indexRouter.get('/status', auth, getStatusPage);
 indexRouter.get('/logger', auth, isAdmin, getLogger);
 indexRouter.get('/clearlogs', auth, isAdmin, clearLog);
 indexRouter.get('/msgpage', auth, msgPage);

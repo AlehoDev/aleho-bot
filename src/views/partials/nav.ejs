@@ -22,10 +22,6 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/status">Bot Status</a>
-        </li>
-
-        <li class="nav-item">
           <a class="nav-link" href="/api/doc">Documentacion</a>
         </li>
       </ul>
@@ -40,10 +36,10 @@
 
       <div class="d-flex justify-content-center align-items-left">
         <% if (user.name === 'Anonymous') { %>
-        <a href="/login" class="btn btn-primary ms-2">Login <img src="/path/to/login-icon.png" alt="" width="16" height="16"></a>
-        <a href="/signin" class="btn btn-success ms-2">Signin <img src="/path/to/signin-icon.png" alt="" width="16" height="16"></a>
+        <a href="/login" class="btn btn-primary ms-2">Login</a>
+        <a href="/signin" class="btn btn-success ms-2">Signin</a>
         <% } else { %>
-        <a href="/logout" class="btn btn-danger ms-2">Logout <img src="/path/to/logout-icon.png" alt="" width="16" height="16"></a>
+        <a href="/logout" class="btn btn-danger ms-2">Logout</a>
         <% } %>
       </div>
     </div>

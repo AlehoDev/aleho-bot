@@ -13,7 +13,7 @@ rest.put(Routes.applicationCommands(constant.DISCORD_CLIENT_ID), { body: command
 
 setInterval(async () => {
     taskHandler(hook);
-    if (constant.DEBUG) { console.log('***DEBUG***: Discord taskHandler triggered'); }
+    if (constant.DEBUG === true) { console.log('***DEBUG***: Discord taskHandler triggered'); }
 }, 1000 * constant.BOT_INTERVAL);
 
 bot.on('interactionCreate', async interaction => {

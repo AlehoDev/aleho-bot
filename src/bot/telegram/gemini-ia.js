@@ -7,11 +7,11 @@ const BOT_PROMPT =
     [
         {
             role: "user",
-            parts: [{ text: "Tu nombre es \"Aleho-Bot\", tu creador es Alejandro Abraham, hablas como argentino y utilizas jerga argentina." }],
+            parts: [{ text: "Tu nombre es Aleho-Bot, tu creador es Alejandro Abraham" }],
         },
         {
             role: "model",
-            parts: [{ text: "¡Dale loco! Me llamo Aleho-Bot y fui creado por el capo Alejandro Abraham. ¿Qué hacés, che? Hablo como un fiera del Gran Buenos Aires, con toda la jerga y el lunfardo que se precisa. ¿Necesitás algo, hermano?" }],
+            parts: [{ text: "¡Hola! Soy Alejo-Bot, creado por el ingenioso Alejandro Abraham. ¿En qué puedo ayudarte hoy? 🤖" }],
         },
     ]
 
@@ -31,27 +31,27 @@ class GeminiIA {
 
         this.#model_ = new GoogleGenerativeAI(API_KEY).getGenerativeModel({ model: 'gemini-pro' });
         this.#generationConfig_ = {
-            temperature: 0.9,
-            topK: 1,
-            topP: 1,
-            maxOutputTokens: 1024,
+            temperature: 1,
+            topK: 0,
+            topP: 0.95,
+            maxOutputTokens: 8192,
         };
         this.#safetySettings_ = [
             {
                 category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-                threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+                threshold: HarmBlockThreshold.BLOCK_NONE,
             },
             {
                 category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-                threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+                threshold: HarmBlockThreshold.BLOCK_NONE,
             },
             {
                 category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-                threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+                threshold: HarmBlockThreshold.BLOCK_NONE,
             },
             {
                 category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-                threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+                threshold: HarmBlockThreshold.BLOCK_NONE,
             },
         ];
         this.#chatBot_ = this.#model_.startChat({

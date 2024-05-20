@@ -10,7 +10,7 @@ export const auth = function (req, res, next) {
 
 export const isAdmin = function (req, res, next) {
     if (!req.user.admin) {
-        if (constant.DEBUG) { console.log(`***DEBUG***: req.user`, req.user); }
+        if (constant.DEBUG === true) { console.log(`***DEBUG***: req.user`, req.user); }
         return res.render('msgpage', { user: readUser(req), msg: 'Solo los administradores pueden ver esta pagina' });
     };
     next();
