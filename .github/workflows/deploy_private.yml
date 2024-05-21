@@ -13,7 +13,8 @@ jobs:
 
     steps:
       - run: echo ${{ secrets.SUDO_PSW }} | sudo -S pm2 delete aleho-bot
-      - run: echo ${{ secrets.SUDO_PSW }} | sudo rm -rf /home/aleho/git-actions-runner/_work/aleho-bot/
+        continue-on-error: true
+      - run: echo ${{ secrets.SUDO_PSW }} | sudo rm -rf /home/aleho/git-actions-runner/_work/aleho-bot/      
         continue-on-error: true
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
@@ -51,10 +52,9 @@ jobs:
           echo EMAIL_USER=${{ secrets.ALEHO_EMAIL_USER }} >> .env 
           echo EMAIL_PASS=${{ secrets.ALEHO_EMAIL_PASS }} >> .env 
           echo GEMINI_API_KEY=${{ secrets.ALEHO_GEMINI_API_KEY }} >> .env
-      - name: Copy CSR
-        run: cp ~/cert.pem ~/git-actions-runner/_work/aleho-bot/aleho-bot/src/certificates/cert.pem
-      - name: Copy KEY
-        run: cp ~/key.pem ~/git-actions-runner/_work/aleho-bot/aleho-bot/src/certificates/key.pem
+          echo CERT=${{ vars.CERT }} >> .env
+          echo KEY=${{ vars.KEY }} >> .env
+
   start:
     needs: deploy
     runs-on: self-hosted
