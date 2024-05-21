@@ -5,12 +5,12 @@
 https://aleho.sytes.net/
 
 # 
-![](https://img.shields.io/website?url=https%3A%2F%2Faleho.sytes.net&style=plastic)
-![](https://img.shields.io/github/package-json/v/alehodev/aleho-bot?style=plastic)
-![](https://img.shields.io/github/issues/alehodev/aleho-bot?style=plastic)
+![](https://img.shields.io/website?url=https%3A%2F%2Faleho.sytes.net)
+![](https://img.shields.io/github/package-json/v/alehodev/aleho-bot)
+![](https://img.shields.io/github/issues/alehodev/aleho-bot)
 
-![](https://img.shields.io/github/last-commit/alehodev/aleho-bot?style=plastic) 
-![](https://img.shields.io/github/commit-activity/y/alehodev/aleho-bot?style=plastic)
+![](https://img.shields.io/github/last-commit/alehodev/aleho-bot) 
+![](https://img.shields.io/github/commit-activity/y/alehodev/aleho-bot)
 
 ## 🤖 [Telegram Bot](https://t.me/Aleho_Bot "Agrega el contacto de Aleho-Bot en tu telegram")
 Aleho-Bot es un bot de Telegram desarrollado en Node.js con capacidad de inteligencia artificial. Este bot te permitirá interactuar con él a través de mensajes en Telegram, brindándote respuestas inteligentes y funcionalidades adicionales.
@@ -44,3 +44,115 @@ Aleho-Bot tambien es un bot de Discord desarrollado en Node.js pero no cuenta co
 	/btc : Cotizacion de Bitcoin en diferentes traders.
 	/eth : Cotizacion de Etherium en diferentes traders.
     /passwordgen : Genera una contraseña aleatoria.
+
+## 📝 Contenido
+
+- [Acerca de](#about)
+- [Comenzando](#getting_started)
+- [Deployment](#deployment)
+- [Built Using](#built_using)
+- [Autor](#authors)
+
+## 🧐 Acerca de... <a name = "about"></a>
+
+Este proyecto de aprendizaje me permitió descubrir los beneficios y la simplicidad de programar con Node.js y Express.
+
+### Resumen.
+
+Servidor backend para implementar un bot en Telegram y Discord con diversas funcionalidades. Además, incluye integración con IA utilizando el modelo Gemini. Cuenta con un pequeño servidor web que actúa como panel de control del bot y un bot integrado con Botpress. Los datos son almacenados en MongoDB
+
+### Trabajo a futuro.
+
+A medida que surjan nuevas ideas, las iré integrando en este proyecto, enfocándome principalmente en mejoras e integración con IA.
+
+## 🏁 Comenzando <a name = "getting_started"></a>
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+
+### Prerequisitos.
+
+Para este proyecto se requiere Node.js v18 o superior y una base de datos MongoDB.
+
+### Instalación de Node.js
+
+```
+sudo apt update
+sudo apt upgrade
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+source ~/.nvm/nvm.sh
+
+nvm install 20
+
+node -v
+```
+### Instalación de MongoDB
+```
+wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+
+sudo apt update
+sudo apt upgrade
+
+sudo apt install -y mongodb-org
+
+sudo systemctl start mongod
+
+sudo systemctl status mongod
+```
+
+## 🚀 Deployment <a name = "deployment"></a>
+
+Para el despliegue, es necesario instalar las dependencias.
+```
+npm install
+```
+
+Configura las variables de entorno según tus necesidades; aquí tienes un ejemplo del archivo .env:
+
+```
+NODE_ENV=development
+DEBUG=true
+PROTOCOL=http
+HOST=192.168.1.10
+HOST_LOCAL=localhost
+PORT=3000
+SECRET_STRING=<secret>
+PRIVATE_KEY=<private>
+TIME_SESSION=168
+DB_MODE=mongoDB
+MONGOOSE_URI=mongodb://localhost:27017/aleho-bot
+MONGOOSE_URI_DEV=mongodb://localhost:27017/aleho-bot-dev
+TELEGRAM_TOKEN=<token de telegram para prod>
+TELEGRAM_TOKEN_DEV=<token de telegram para desarrollo>
+TELEGRAM_MAGIC_WORD=<palabra magica>
+DISCORD_TOKEN=
+DISCORD_TOKEN_DEV=
+DISCORD_CLIENT_ID=
+DISCORD_CLIENT_ID_DEV=
+DISCORD_WEBHOCK_TOKEN=
+DISCORD_WEBHOCK_ID=
+BOT_INTERVAL=60
+SPAM_MSG_DELAY=3
+ASK_LIMIT=3
+ASK_LIMIT_TIME=10
+EMAIL_HOST=
+EMAIL_PORT=
+EMAIL_SECURE=
+EMAIL_USER=
+EMAIL_PASS=
+GEMINI_API_KEY=
+CERT=
+KEY=
+```
+
+
+## ⛏️ Built Using <a name = "built_using"></a>
+
+- [MongoDB](https://www.mongodb.com/) - Database
+- [Express](https://expressjs.com/) - Server Framework
+- [NodeJs](https://nodejs.org/en/) - Server Environment
+
+## ✍️ Authors <a name = "authors"></a>
+
+- [@aleho84](https://github.com/aleho84)
