@@ -49,7 +49,6 @@ Aleho-Bot tambien es un bot de Discord desarrollado en Node.js pero no cuenta co
 
 - [Acerca de](#about)
 - [Comenzando](#getting_started)
-- [Deployment](#deployment)
 - [Built Using](#built_using)
 - [Autor](#authors)
 
@@ -67,13 +66,13 @@ A medida que surjan nuevas ideas, las iré integrando en este proyecto, enfocán
 
 ## 🏁 Comenzando <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+Estas instrucciones te ayudarán a tener una copia del proyecto funcionando en tu propia computadora para que puedas desarrollar y probarlo.
 
 ### Prerequisitos.
 
 Para este proyecto se requiere Node.js v18 o superior y una base de datos MongoDB.
 
-### Instalación de Node.js
+<u>Instalación de Node.js</u>
 
 ```
 sudo apt update
@@ -87,7 +86,7 @@ nvm install 20
 
 node -v
 ```
-### Instalación de MongoDB
+<u>Instalación de MongoDB</u>
 ```
 wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
 
@@ -101,14 +100,20 @@ sudo systemctl start mongod
 sudo systemctl status mongod
 ```
 
-## 🚀 Deployment <a name = "deployment"></a>
+<u>Clonando el repositorio</u>
 
-Para el despliegue, es necesario instalar las dependencias.
+```
+git clone https://github.com/Aleho84/aleho-bot
+cd aleho-bot
+```
+
+<u>Instalando dependencias</u>
+
 ```
 npm install
 ```
 
-Configura las variables de entorno según tus necesidades; aquí tienes un ejemplo del archivo .env:
+Configura las variables de entorno según tus necesidades, para ello deberas crear un archivo .env en la raiz del proyecto. Aquí tienes un ejemplo del archivo .env:
 
 ```
 NODE_ENV=development
@@ -117,15 +122,15 @@ PROTOCOL=http
 HOST=192.168.1.10
 HOST_LOCAL=localhost
 PORT=3000
-SECRET_STRING=<secret>
-PRIVATE_KEY=<private>
+SECRET_STRING=
+PRIVATE_KEY=
 TIME_SESSION=168
 DB_MODE=mongoDB
 MONGOOSE_URI=mongodb://localhost:27017/aleho-bot
 MONGOOSE_URI_DEV=mongodb://localhost:27017/aleho-bot-dev
-TELEGRAM_TOKEN=<token de telegram para prod>
-TELEGRAM_TOKEN_DEV=<token de telegram para desarrollo>
-TELEGRAM_MAGIC_WORD=<palabra magica>
+TELEGRAM_TOKEN=
+TELEGRAM_TOKEN_DEV=
+TELEGRAM_MAGIC_WORD=abracadabra!
 DISCORD_TOKEN=
 DISCORD_TOKEN_DEV=
 DISCORD_CLIENT_ID=
@@ -145,7 +150,6 @@ GEMINI_API_KEY=
 CERT=
 KEY=
 ```
-
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 

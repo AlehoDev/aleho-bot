@@ -16,7 +16,7 @@ import apiRouter from './routes/apiRoutes.js';
 import indexRouter from './routes/indexRoutes.js';
 import constant from './config/constant.js';
 import './config/passport-local.js';
-import 'dotenv/config';
+import 'dotenv/config'; 
 
 // SERVER
 logger.info(`[SERVER]: 🌱 ENVIRONMENT=${constant.NODE_ENV}`);
@@ -37,10 +37,14 @@ if (constant.PROTOCOL == 'https') {
 
 const ioServer = new Server(httpServer, {
     cors: {
-        origin: "*",
-        methods: ["GET", "POST"],
-    }
-});
+      origin: process.env.ALLOWED_ORIGINS?.split(',') || ['*'],
+      methods: ['GET', 'POST'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      credentials: false, 
+    },
+    transports: ['websocket', 'polling'],
+    path: '/socket.io', 
+  });
 
 // MIDDLEWARES
 app.use(express.urlencoded({ extended: true }));
@@ -98,7 +102,7 @@ websockets(ioServer);
 // HTTP SERVER
 const portNormalizer = normalizePort(constant.PORT);
 app.set('port', portNormalizer);
-httpServer.listen(portNormalizer);
+httpServer.listen(portNormalizer, '0.0.0.0');
 httpServer.on('error', onError);
 httpServer.on('listening', onListening);
 

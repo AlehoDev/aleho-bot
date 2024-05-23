@@ -108,4 +108,3 @@ dist
 *.csr
 telegramBot.json
 package-lock.json
-key.pem
