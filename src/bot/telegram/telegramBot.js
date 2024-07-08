@@ -11,7 +11,7 @@ bot.setMyCommands(commandInfo);
 
 setInterval(async () => {
   taskHandler(bot);
-}, 1000 * constant.BOT_INTERVAL);
+}, 1000 * 60 * constant.BOT_INTERVAL);
 
 bot.on('message', (msg) => {
   chatHandler(bot, msg);
