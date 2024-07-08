@@ -3,6 +3,7 @@ import logger from '../utils/logger.js';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import { dolar_euroFunction } from '../utils/currency.js'
 
 //Funcion para pasar los segundos a una cadena string legible (C dias HH:MM:SS)
 export const secondsToString = function (seconds) {
@@ -94,8 +95,7 @@ export const showLogsFunction = async () => {
 
 //Devuelve la cotizacion del dolar
 export const dolarHoyFunction = async () => {
-    const urlRequest = `https://api.bluelytics.com.ar/v2/latest`;
-    const response = await axios.get(urlRequest);
+    const response = await dolar_euroFunction();
     let dolarObj = {};
     dolarObj.oficial = response.data.oficial;
     dolarObj.blue = response.data.blue;
@@ -106,8 +106,7 @@ export const dolarHoyFunction = async () => {
 
 //Devuelve la cotizacion del euro
 export const euroHoyFunction = async () => {
-    const urlRequest = `https://api.bluelytics.com.ar/v2/latest`;
-    const response = await axios.get(urlRequest);
+    const response = await dolar_euroFunction();
     let euroObj = {};
     euroObj.oficial = response.data.oficial_euro;
     euroObj.blue = response.data.blue_euro;

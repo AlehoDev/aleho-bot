@@ -14,6 +14,8 @@ export const dolar_euroFunction = async () => {
                 dolarApiBlueResponse.data.venta;
             bluelyticsResponse.data.blue.value_buy =
                 dolarApiBlueResponse.data.compra;
+            bluelyticsResponse.data.blue.value_avg =
+                (dolarApiBlueResponse.data.compra + dolarApiBlueResponse.data.venta) / 2;
         }
 
         return {
