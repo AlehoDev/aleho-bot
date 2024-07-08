@@ -3,20 +3,19 @@
 
 <%- include('../partials/head', {title: 'Logger' }) %>
 
-    <body>
+<body>
 
-        <%- include('../partials/websocket') %>
-            <%- include('../partials/nav', {user}) %>
+  <%- include('../partials/nav', {user}) %>
 
-                <div class="container-sm">                    
-                        <div id="logger">
-                            <table class="table">
+  <div class="container-sm">
+    <div id="logger">
+      <table class="table">
 
-                            </table>
-                        </div>                    
-                </div>
-    </body>
+      </table>
+    </div>
+  </div>
+</body>
 
-    <%- include('../partials/scripts') %>
+<%- include('../partials/scripts') %>
 
 </html>
