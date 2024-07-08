@@ -14,7 +14,7 @@ const loggerConfig = {
       new winston.transports.File({ filename: path.join(constant.__dirname, '../logs/error.log'), level: 'error' }),
       new winston.transports.File({ filename: path.join(constant.__dirname, '../logs/info.log') }),
       new MongoDB({
-        db: process.env.MONGOOSE_URI,
+        db: constant.MONGOOSE_URI,
         collection: 'logs',
         level: 'info',
         options: {
@@ -38,7 +38,7 @@ const loggerConfig = {
     ),
     transports: [
       new MongoDB({
-        db: process.env.MONGOOSE_URI_DEV,
+        db: constant.MONGOOSE_URI,
         collection: 'logs',
         level: 'info',
         options: {
