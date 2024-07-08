@@ -5,7 +5,7 @@ import path from 'path';
 const PROTOCOL = process.env.PROTOCOL == 'https' ? process.env.PROTOCOL : 'http';
 const HOST = process.env.HOST || 'localhost';
 const HOST_LOCAL = process.env.HOST_LOCAL || 'localhost';
-const PORT = process.env.PORT || 3000;
+const PORT = process.argv[3] || process.env.PORT || 3000;
 const SECRET_STRING = process.env.SECRET_STRING || 'secretstring';
 const PRIVATE_KEY = process.env.PRIVATE_KEY || 'privatekey';
 const TIME_SESSION = process.env.TIME_SESSION || 60;
