@@ -31,10 +31,8 @@ const searchNewGames = async (bot, users) => {
                         user.chatID,
                         `${user.userName} encontré ${gameMessage}`
                     );
-                    if (constant.DEBUG) {
-                        logger.info(
-                            `[TELEGRAM BOT]: Juego gratis encontrado, ${user.userName} informado.`
-                        );
+                    if (constant.DEBUG) {                        
+                        logger.info(`[TELEGRAM BOT]: Juego gratis encontrado, ${user.userName} informado.`);
                     }
 
                     const messages = data.map((game) => {
@@ -64,8 +62,8 @@ const checkDolarBlue = async (bot, users) => {
         const oficialSell = data.oficial.value_sell;
 
         if (constant.DEBUG) {
-            logger.info(`Curr Dolar Value:, ${blueSell}`);
-            logger.info(`Last Dolar Value:, ${blueLastValue}`);
+            logger.info(`*** Check Dolar Blue ***`);
+            logger.info(`Curr Dolar Value:, ${blueSell} - Last Dolar Value:, ${blueLastValue}`);
         }
 
         if (blueLastValue !== blueSell) {
