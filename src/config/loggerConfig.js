@@ -8,7 +8,7 @@ const loggerConfig = {
   production: {
     format: winston.format.combine(
       winston.format.timestamp(),
-      winston.format.printf(info => `[${info.timestamp}] - ${info.level} - ${info.message}`)
+      winston.format.printf(info => `${info.timestamp} - ${info.level} - ${info.message}`)
     ),
     transports: [
       new winston.transports.File({ filename: path.join(constant.__dirname, '../logs/error.log'), level: 'error' }),
@@ -34,9 +34,11 @@ const loggerConfig = {
   development: {
     format: winston.format.combine(
       winston.format.timestamp(),
-      winston.format.printf(info => `[${info.timestamp}] - ${info.level}: ${info.message}`)
+      winston.format.printf(info => `${info.timestamp} - ${info.level} - ${info.message}`)
     ),
     transports: [
+      new winston.transports.File({ filename: path.join(constant.__dirname, '../logs/error.log'), level: 'error' }),
+      new winston.transports.File({ filename: path.join(constant.__dirname, '../logs/info.log') }),
       new MongoDB({
         db: constant.MONGOOSE_URI,
         collection: 'logs',

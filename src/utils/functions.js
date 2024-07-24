@@ -74,9 +74,12 @@ export const showLogsFunction = async () => {
         const arrayLog = read.split(/\r\n|\r|\n/);
 
         arrayLog.forEach(arrayLogElement => {
+            console.log(arrayLogElement);
+
             const line = arrayLogElement.split(' - ');
+
             const jsonLine = {
-                timestamp: line[0],
+                timestamp: `[${timeStampConverter(line[0])}]`,
                 level: ` ${line[1]} `,
                 message: line[2]
             };
@@ -166,4 +169,27 @@ export const generatePassword = (length) => {
     }
 
     return password;
+};
+
+export const timeStampConverter = function (dateTime) {
+    try {
+        const newDate = new Date(dateTime);
+        console.log(dateTime);
+
+        const separadorDia = '-';
+        const separadorHora = ':';
+
+        const año = newDate.getFullYear();
+        const mes = ((newDate.getMonth() + 1) < 10) ? '0' + (newDate.getMonth() + 1) : (newDate.getMonth() + 1);
+        const dia = (newDate.getDate() < 10) ? '0' + newDate.getDate() : newDate.getDate();
+        const hora = (newDate.getHours() < 10) ? '0' + newDate.getHours() : newDate.getHours();
+        const minuto = (newDate.getMinutes() < 10) ? '0' + newDate.getMinutes() : newDate.getMinutes();
+        const segundo = (newDate.getSeconds() < 10) ? '0' + newDate.getSeconds() : newDate.getSeconds();
+
+        return año + separadorDia + mes + separadorDia + dia + ' ' + hora + separadorHora + minuto + separadorHora + segundo;
+    } catch (error) {
+        return {
+            error: `${error}`
+        };
+    };
 };
