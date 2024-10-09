@@ -9,12 +9,12 @@ export default (ioServer) => {
 
         socket.on('client_handshake', () => {
             //logger.info(`[WEBSOKET]:📱 Cliente [${sessionCookie}][${clientIP}] conectado`)
-            logger.info(`[WEBSOKET]:📱 [${clientIP}] conectado`)
+            //logger.info(`[WEBSOKET]:📱 [${clientIP}] conectado`)
         });
 
         socket.on('disconnect', () => {
             //logger.info(`[WEBSOKET]:📱 Cliente [${sessionCookie}][${clientIP}] desconectado`)
-            logger.info(`[WEBSOKET]:📱 [${clientIP}] desconectado`)
+            //logger.info(`[WEBSOKET]:📱 [${clientIP}] desconectado`)
         });
     });
 };
