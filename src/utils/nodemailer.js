@@ -76,7 +76,7 @@ const generateValidatorMailBody = (name, code) => {
                     <tbody>
                         <tr>
                             <td style="vertical-align:center;text-align:center">
-                                <img src="https://aleho.sytes.net:3001/img/aleho-bot.jpg" width="128" height="128" alt="Logo" align="center" style="border:none;max-width:100%;margin-top:20px;min-height:128px;min-width:128px">
+                                <img src="https://aleho.sytes.net/img/aleho-bot.jpg" width="128" height="128" alt="Logo" align="center" style="border:none;max-width:100%;margin-top:20px;min-height:128px;min-width:128px">
                             </td>
                         </tr>
 

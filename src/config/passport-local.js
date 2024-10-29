@@ -69,7 +69,7 @@ passport.use('signin', new LocalStrategy(
         };
         const nuevoUsuario = await usersDao.create(req.body);
         nuevoUsuario.token = tokenGenerate(nuevoUsuario._doc);
-        const sendCode = sendCodeValidatorMail('alejandro.r.abraham@gmail.com', 'Alejandro', nuevoUsuario.account.code);
+        const sendCode = sendCodeValidatorMail(nuevoUsuario.email, 'Alejandro', nuevoUsuario.account.code);
 
         const msg = `[USERS]: User ${email} signin susscefuly`;
         req.msg = 'Se envió un codigo de validacion a su cuenta de correo, la proxima vez que inicie sesion deberá ingresar el codigo enviado.';

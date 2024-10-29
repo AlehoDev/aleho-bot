@@ -16,14 +16,14 @@ const searchNewGames = async (hook) => {
             let msg = `${game.title}:\n\n Tipo: ${game.type}\n Plataforma: ${game.platforms}\n Finaliza: ${game.end_date}\n ${game.open_giveaway_url}`;
             let embed = (new EmbedBuilder().setTitle(msg).setColor(0x00FFFF).setImage(game.thumbnail));
 
-            if (constant.DEBUG === true) {
-                showWebhookMsgDebug(msg);
-            } else {
+            if (constant.NODE_ENV === 'production') {
                 hook.send({
                     content: 'Juego Gratis encontrado:',
                     username: 'TokonBot',
                     embeds: [embed],
                 });
+            } else {
+                showWebhookMsgDebug(msg);
             }
 
             logger.info(`[DISCORD BOT]: Juego gratis encontrado, TokonBot informado.`);
