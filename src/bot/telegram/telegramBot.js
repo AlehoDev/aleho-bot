@@ -5,7 +5,14 @@ import taskHandler from './taskHandler.js';
 import logger from '../../utils/logger.js';
 import constant from '../../config/constant.js';
 
-const bot = new TelegramBot(constant.TELEGRAM_TOKEN, { polling: true });
+const bot = new TelegramBot(constant.TELEGRAM_TOKEN, {
+  polling: true, request: {
+    agentOptions: {
+      keepAlive: true,
+      family: 4
+    }
+  }
+});
 
 bot.setMyCommands(commandInfo);
 
