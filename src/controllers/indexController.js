@@ -1,7 +1,9 @@
-import packageJson from '../../package.json' assert {type: "json"};
+import readJson  from "../utils/readJson.js";
 import logger from '../utils/logger.js';
 import { readDataUser, readUser, readServer, readDolar } from '../utils/helpers.js';
 import { clearLogsFunction } from '../utils/functions.js';
+
+const packageJson = readJson();
 
 export const getIndexPage = async (req, res) => {
   try {

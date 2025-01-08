@@ -2,9 +2,11 @@ import 'dotenv/config';
 import express from 'express';
 import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUI from 'swagger-ui-express';
-import packageJson from '../../package.json' assert {type: "json"};
+import readJson  from "../utils/readJson.js";
 import path from 'path';
 import constant from '../config/constant.js';
+
+const packageJson = readJson();
 
 const SERVER_SWAGGER = `${constant.PROTOCOL}://${constant.HOST}:${constant.PORT}`;
 const SERVER_SWAGGER_LOCAL = `${constant.PROTOCOL}://${constant.HOST_LOCAL}:${constant.PORT}`;

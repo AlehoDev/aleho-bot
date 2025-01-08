@@ -1,11 +1,11 @@
 console.log('***TEST***');
 
-import { conversationInitialized } from '../bot/telegram/bard-ai-conversation.js';
-import connectDB from '../config/connect-db.js';
-import constant from '../config/constant.js';
+import readJson from "../utils/readJson.js";
 
+const packageJson = readJson();
 
-connectDB()
-    .then(() => {
-        conversationInitialized();
-    })
+try {
+    await console.log(packageJson);
+} catch (error) {
+    console.log('Error:', error);
+}
