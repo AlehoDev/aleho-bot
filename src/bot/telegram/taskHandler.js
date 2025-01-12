@@ -1,4 +1,3 @@
-import { enableValidators } from "discord.js";
 import { telegramUsersDao, dolarBlueHistoryDao } from "../../daos/index.js";
 import { dolar_euroFunction } from "../../utils/currency.js";
 import { newFreeGamesFunction } from "../../utils/games.js";
@@ -61,10 +60,7 @@ const checkDolarBlue = async (bot, users) => {
         const oficialBuy = data.oficial.value_buy;
         const oficialSell = data.oficial.value_sell;
 
-        if (constant.DEBUG) {
-            logger.info(`*** Check Dolar Blue ***`);
-            logger.info(`Curr Dolar Value:, ${blueSell} - Last Dolar Value:, ${blueLastValue}`);
-        }
+        constant.DEBUG ? logger.info(`*** Check Dolar Blue = Curr Dolar Value:, ${blueSell} - Last Dolar Value:, ${blueLastValue}`) : null;        
 
         if (blueLastValue !== blueSell) {
             const validData = !error && status === 200 && data.length !== 0;
