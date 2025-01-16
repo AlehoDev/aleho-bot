@@ -13,7 +13,7 @@ const DB_MODE = process.env.DB_MODE || 'mongoDB';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const NODE_ENV = process.env.NODE_ENV == 'production' ? process.env.NODE_ENV : 'development';
-const DEBUG = process.env.DEBUG || false;
+const DEBUG = JSON.parse(process.env.DEBUG) || false;
 const MONGOOSE_URI = process.env.NODE_ENV == 'production' ? process.env.MONGOOSE_URI : process.env.MONGOOSE_URI_DEV;
 const TELEGRAM_TOKEN = process.env.NODE_ENV == 'production' ? process.env.TELEGRAM_TOKEN : process.env.TELEGRAM_TOKEN_DEV;
 const TELEGRAM_MAGIC_WORD = process.env.TELEGRAM_MAGIC_WORD || 'supercalifragilistico';
@@ -32,7 +32,7 @@ const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const KEY = process.env.KEY || './src/certificates/key.pem';
-const CERT= process.env.CERT || './src/certificates/cert.pem';
+const CERT = process.env.CERT || './src/certificates/cert.pem';
 
 const constant = {
     PROTOCOL,

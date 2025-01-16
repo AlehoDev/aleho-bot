@@ -30,7 +30,7 @@ const searchNewGames = async (bot, users) => {
                         user.chatID,
                         `${user.userName} encontré ${gameMessage}`
                     );
-                    if (constant.DEBUG) {                        
+                    if (constant.DEBUG) {
                         logger.info(`[TELEGRAM BOT]: Juego gratis encontrado, ${user.userName} informado.`);
                     }
 
@@ -60,7 +60,7 @@ const checkDolarBlue = async (bot, users) => {
         const oficialBuy = data.oficial.value_buy;
         const oficialSell = data.oficial.value_sell;
 
-        constant.DEBUG ? logger.info(`*** Check Dolar Blue = Curr Dolar Value:, ${blueSell} - Last Dolar Value:, ${blueLastValue}`) : null;        
+        if (constant.DEBUG === true) { logger.info(`***DEBUG***: Check Dolar Blue = Curr Dolar Value:, ${blueSell} - Last Dolar Value:, ${blueLastValue}`) };
 
         if (blueLastValue !== blueSell) {
             const validData = !error && status === 200 && data.length !== 0;
@@ -69,13 +69,14 @@ const checkDolarBlue = async (bot, users) => {
                 if (user.botStart && validData) {
                     const msg = [
                         `${user.userName}, la cotización del Dolar Blue 💵 cambió`,
-                        `-Compra:  $${blueBuy}`,
-                        `-Venta:      $${blueSell}`,
+                        `-Compra:  $${blueBuy.toFixed(2)}`,
+                        `-Venta:      $${blueSell.toFixed(2)}`,
                     ].join("\n");
                     bot.sendMessage(user.chatID, msg);
-                    // logger.info(`[TELEGRAM BOT]: La cotización del dolar cambió, ${user.userName} informado.`);
                 }
             }
+
+            logger.info(`[TELEGRAM BOT]: La cotización del dolar cambió, ${blueSell.toFixed(2)}.`);
 
             await dolarBlueHistoryDao.create({
                 blue_sell: blueSell.toFixed(2),
