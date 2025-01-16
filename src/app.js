@@ -19,7 +19,7 @@ import './config/passport-local.js';
 import 'dotenv/config'; 
 
 // SERVER
-logger.info(`[SERVER]: 🌱 ENVIRONMENT=${constant.NODE_ENV}`);
+logger.info(`[SERVER]: 🌱 ENVIRONMENT=${constant.NODE_ENV} 🪲  DEBUG=${constant.DEBUG}`);
 
 const app = express();
 let httpServer;
